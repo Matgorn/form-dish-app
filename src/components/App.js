@@ -16,12 +16,14 @@ class App extends Component {
   }
 
   renderResult = () => {
-    if(this.state.data.id) {
-      return <Response data={this.state.data} />
-    }
     if(this.state.load === true) {
       return <Loading />
     }
+    if(this.state.data.id) {
+      return <Response data={this.state.data} />
+    }
+
+    return ''
   }
 
   startLoading = () => {
@@ -31,10 +33,12 @@ class App extends Component {
   }
 
   getData = async (data) => {
-    await this.setState({
-      data,
-      load: false
-    });
+    if(data) {
+      await this.setState({
+        data,
+        load: false
+      });
+    }
   }
 
   render() {

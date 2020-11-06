@@ -10,7 +10,6 @@ class Response extends Component {
 
     for(const prop in data) {
       if(prop !== 'error') {
-        console.log(data[prop] === 'pizza');
         if(data[prop] === 'pizza') {
           result.push(
             <div key={prop} className="field result-field">

@@ -55,15 +55,15 @@ class FormDish extends Component {
     .then(data => {
       if(data.id) {
         this.props.sendData(data);
+        this.setState({
+          ...this.props.state.default
+        })
       } else {
+        this.props.sendData({});
         this.setState({ error: data })
       }
     })
     .catch(err => console.log(err))
-
-    this.setState({
-      ...this.props.state.default
-    })
   }
 
   render() {
